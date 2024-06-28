@@ -1,16 +1,27 @@
-
+import { motion } from "framer-motion";
+import Heading from "./Heading";
 
 function AboutMe() {
-    const date = new Date();
+  const date = new Date();
   const age = date.getFullYear() - 2003;
-    
+
   return (
-    <section className="bg-white bg-opacity-30 rounded shadow backdrop-blur-lg p-5 mb-14 text-white">
-        <h1 className="text-white text-2xl font-bold">Rólam</h1>
-      Én {age} éves vagyok!
-      
-    </section>
-  )
+    <motion.section
+      id="aboutMe"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: 0.3 }}
+      className="bg-slate-900 rounded shadow backdrop-blur-lg p-5 mb-14 text-white border-2 border-slate-800"
+    >
+      <Heading>Rólam</Heading>
+      <p>Szia!</p>
+      <br />
+      <p>
+        Gönye Mihály vagyok, {age} éves vagyok, az ELTE Informatika Kar
+        hallgatója!
+      </p>
+    </motion.section>
+  );
 }
 
-export default AboutMe
+export default AboutMe;

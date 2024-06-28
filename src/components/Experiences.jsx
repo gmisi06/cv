@@ -1,52 +1,59 @@
-import { useEffect, useRef } from "react"
-
+import { useEffect, useRef } from "react";
+import romai_lakopark_heviz from "../assets/romai_lakopark_heviz.png";
+import szkd_vendeghaz from "../assets/szkd_vendeghaz.png";
+import { motion } from "framer-motion";
+import Heading from "./Heading";
 
 function Experiences() {
-
-    const romaipark = useRef(null)
-    const szkd = useRef(null)
-
-    useEffect(() => {
-        if (romaipark && romaipark.current) {
-          const apiResponse = "https://romaipark-heviz.hu/";
-          romaipark.current.src = apiResponse;
-        }
-      }, []);
-      useEffect(() => {
-        if (szkd && szkd.current) {
-          const apiResponse = "https://szkdvendeghaz.hu/";
-          szkd.current.src = apiResponse;
-        }
-      }, []);
-    
-      return (
-        <section className="bg-white bg-opacity-30 rounded shadow backdrop-blur-lg p-5 mb-14 text-white">
-
-
-        <h1 className="text-white text-2xl font-bold">Tapasztalatok</h1>
-        <h2 className="text-white text-xl font-bold">Versenyeredmények</h2>
-        <p>Nemes Tihamér Nemzetközi Programozási Verseny 2022 döntő: <b>42. hely</b></p>
-        <p>Országos Grafikus Programozási Verseny 2022 döntő: <b>21. hely</b></p>
-        <h2 className="text-white text-xl font-bold">Referencia munkák</h2>
-      <div className="w-3/4 mx-auto bg-slate-900">
-          <iframe
-            ref={romaipark}
-            title="Római Lakópark Hévíz"
-            width="100%"
-            height="600px"
-          />
+  return (
+    <motion.section
+      id="experiences"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: 0.9 }}
+      className="bg-slate-900 rounded shadow backdrop-blur-lg p-5 text-white border-2 border-slate-800"
+    >
+      <Heading>Tapasztalatok</Heading>
+      <h2 className="text-white text-center text-xl font-semibold my-2 font-serif">
+        Versenyeredmények
+      </h2>
+      <p>
+        Nemes Tihamér Nemzetközi Programozási Verseny 2022 döntő:{" "}
+        <b>42. hely</b>
+      </p>
+      <p>
+        Országos Grafikus Programozási Verseny 2022 döntő: <b>21. hely</b>
+      </p>
+      <h2 className="text-white text-center text-xl font-semibold my-2 font-serif">
+        Referenciamunkák
+      </h2>
+      <div className="grid gap-10 my-10">
+        <div
+          className="tooltip bg-slate-800 w-3/4 mx-auto"
+          data-tip="Megnyitáshoz kattints rá!"
+        >
+          <a href="https://romaipark-heviz.hu/">
+            <img
+              className="hover:scale-95 transition-all duration-100"
+              src={romai_lakopark_heviz}
+            />
+          </a>
         </div>
-        <div className="w-3/4 mx-auto bg-slate-900">
-          <iframe
-            ref={szkd}
-            title="Római Lakópark Hévíz"
-            width="100%"
-            height="600px"
-          />
+        <div className="w-5/6 h-1 bg-slate-800 mx-auto" />
+        <div
+          className="tooltip bg-slate-800 w-3/4 mx-auto"
+          data-tip="Megnyitáshoz kattints rá!"
+        >
+          <a href="https://szkdvendeghaz.hu/">
+            <img
+              className="hover:scale-95 transition-all duration-100"
+              src={szkd_vendeghaz}
+            />
+          </a>
         </div>
-    </section>
-        
-      );
+      </div>
+    </motion.section>
+  );
 }
 
-export default Experiences
+export default Experiences;

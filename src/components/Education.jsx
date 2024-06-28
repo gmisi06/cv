@@ -1,29 +1,46 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import Heading from "./Heading";
 
 function Education() {
+  return (
+    <motion.section
+      id="education"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: 0.6 }}
+      className="bg-slate-900 rounded shadow backdrop-blur-lg p-5 mb-14 border-2 border-slate-800 "
+    >
+      <Heading>Tanulmányok</Heading>
+      <table className="text-white">
+        <tbody>
+          <tr className="align-top border-b border-b-slate-600">
+            <td className="pr-10">
+              <b>2018 - 2022</b>
+            </td>
+            <td className="pb-2">
+              <span className="text-lg font-semibold">
+                Keszthelyi Vajda János Gimnázium
+              </span>
+              <br />
+              matematika/informatika tagozat
+            </td>
+          </tr>
+          <tr className="align-top">
+            <td className="pt-2">
+              <b>2022 -</b>
+            </td>
+            <td className="pt-2">
+              <span className="text-lg font-semibold">
+                ELTE Informatikai Kar
+              </span>
+              <br />
+              programtervező informatikus képzés BSc
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </motion.section>
+  );
+}
 
-    return (
-      <motion.section
-      initial={{ opacity: 0, x: -500 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.75 }} 
-      className="bg-white bg-opacity-30 rounded shadow backdrop-blur-lg p-5 mb-14">
-        <h1 className="text-white text-2xl font-bold">Tanulmányok</h1>
-        <table className="text-white">
-            <tbody> 
-                <tr className="align-top">
-                    <td>2018 - 2022</td>
-                    <td>Keszthelyi Vajda János gimnázium<br/>matematika/informatika tagozat</td>
-                </tr>
-                <tr className="align-top">
-                    <td>2022 -</td>
-                    <td>ELTE Informatikai Kar<br/>programtervező informatikus képzés BSc</td>
-                </tr>
-            </tbody>
-        </table>
-      </motion.section>
-    )
-  }
-  
-  export default Education
-  
+export default Education;
